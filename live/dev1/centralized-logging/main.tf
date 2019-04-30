@@ -1,6 +1,8 @@
 module "logging" {
   source = "../../../modules/centralized-logging"
 
+  vpc = "${var.vpc}"
+
   env_name = "${var.env_name}"
 
   app_name = "${var.app_name}"

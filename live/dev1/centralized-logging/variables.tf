@@ -1,3 +1,7 @@
+variable "vpc" {
+  description = "vpc name"
+}
+
 variable "region" {
   default = "us-east-1"
 }

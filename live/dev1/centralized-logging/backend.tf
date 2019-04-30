@@ -26,3 +26,12 @@ provider "aws" {
   secret_key = "${data.vault_aws_access_credentials.sts-creds.secret_key}"
   token      = "${data.vault_aws_access_credentials.sts-creds.security_token}"
 }
+
+data "terraform_remote_state" "edl-etl-workflow" {
+  backend = "atlas"
+
+  config {
+    name    = "CPPIB/edl-etl-workflow-dev1"
+    address = "https://terraform.cppib.ca"
+  }
+}

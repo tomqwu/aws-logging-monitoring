@@ -1,6 +1,8 @@
+vpc = "cppib-edl-dev1"
+
 env_name = "nonprod"
 
-app_name = "edl-kinesis"
+app_name = "edl-centralized-logging"
 
 destination_policy_identifiers = [
   "525341175865", # edl-dev1

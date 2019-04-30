@@ -1,3 +1,7 @@
+variable "vpc" {
+  description = "vpc name"
+}
+
 variable "region" {
   default = "us-east-1"
 }
@@ -21,4 +25,15 @@ variable "kinesis_retention_period" {
 variable "destination_policy_identifiers" {
   default = []
   type    = "list"
+}
+
+###########################
+# Lambda
+###########################
+variable "lambda_s3_bucket" {
+  default = "cppib-terraform-lambda-artifacts"
+}
+
+variable "lambda_s3_key" {
+  default = "cloudwatch-kinesis-es-lambda/main.zip"
 }
