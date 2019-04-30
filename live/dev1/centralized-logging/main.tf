@@ -10,4 +10,6 @@ module "logging" {
   kinesis_shard_count = "${var.kinesis_shard_count}"
 
   kinesis_retention_period = "${var.kinesis_retention_period}"
+
+  destination_policy_identifiers = "${var.destination_policy_identifiers}"
 }

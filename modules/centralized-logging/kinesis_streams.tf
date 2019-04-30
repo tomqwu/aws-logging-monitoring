@@ -12,10 +12,3 @@ resource "aws_kinesis_stream" "stream" {
     Name = "${var.app_name}-${var.env_name}"
   }
 }
-
-resource "aws_lambda_event_source_mapping" "streams" {
-  event_source_arn  = "${aws_kinesis_stream.stream.arn}"
-  function_name     = "${aws_lambda_function.cw-kinesis-es.arn}"
-  starting_position = "LATEST"
-  batch_size        = 100
-}
