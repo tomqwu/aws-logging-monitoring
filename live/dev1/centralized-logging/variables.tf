@@ -17,3 +17,8 @@ variable "kinesis_shard_count" {
 variable "kinesis_retention_period" {
   default = 48
 }
+
+variable "destination_policy_identifiers" {
+  default = []
+  type    = "list"
+}
