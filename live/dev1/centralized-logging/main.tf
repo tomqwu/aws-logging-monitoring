@@ -13,3 +13,17 @@ module "logging" {
 
   destination_policy_identifiers = "${var.destination_policy_identifiers}"
 }
+
+module "route53" {
+  source = "../../../modules/route53"
+
+  providers = {
+    aws = "aws.shared-services"
+  }
+
+  zone_id = "${var.zone_id}"
+
+  alias = "${var.app_name}-${var.env_name}"
+
+  record_name = "${data.terraform_remote_state.elasticsearch.endpoint}"
+}

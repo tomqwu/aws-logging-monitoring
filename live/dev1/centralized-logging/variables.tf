@@ -26,3 +26,11 @@ variable "destination_policy_identifiers" {
   default = []
   type    = "list"
 }
+
+############
+# Route 53
+############
+variable "zone_id" {
+  default = "Z1IYSCRRQSWL91"
+}
+

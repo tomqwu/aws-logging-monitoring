@@ -35,3 +35,27 @@ data "terraform_remote_state" "edl-etl-workflow" {
     address = "https://terraform.cppib.ca"
   }
 }
+
+data "terraform_remote_state" "elasticsearch" {
+  backend = "atlas"
+
+  config {
+    name    = "CPPIB/edl-elasticsearch-nonprod"
+    address = "https://terraform.cppib.ca"
+  }
+}
+
+data "vault_aws_access_credentials" "sts-shared-services" {
+  backend = "aws"
+  role    = "shared-services-dev"
+  type    = "sts"
+}
+
+provider "aws" {
+  alias  = "shared-services"
+  region = "${var.region}"
+
+  token      = "${data.vault_aws_access_credentials.sts-shared-services.security_token}"
+  access_key = "${data.vault_aws_access_credentials.sts-shared-services.access_key}"
+  secret_key = "${data.vault_aws_access_credentials.sts-shared-services.secret_key}"
+}
