@@ -2,7 +2,7 @@ terraform {
   required_version = ">= 0.11.10" # introduction of Local Values configuration language feature
 
   backend "atlas" {
-    name    = "CPPIB/edl-elasticsearch-nonprod"
+    name    = "CPPIB/edl-centralized-logging-nonprod"
     address = "https://terraform.cppib.ca"
   }
 }
