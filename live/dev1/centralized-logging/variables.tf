@@ -17,4 +17,3 @@ variable "kinesis_shard_count" {
 variable "kinesis_retention_period" {
   default = 48
 }
-
