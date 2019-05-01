@@ -14,6 +14,8 @@ module "logging" {
   destination_policy_identifiers = "${var.destination_policy_identifiers}"
 
   es_endpoint = "${data.terraform_remote_state.elasticsearch.endpoint}"
+
+  lambda_s3_key = "${var.lambda_s3_key}"
 }
 
 module "route53" {

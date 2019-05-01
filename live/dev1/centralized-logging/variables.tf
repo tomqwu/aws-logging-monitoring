@@ -34,3 +34,4 @@ variable "zone_id" {
   default = "Z1IYSCRRQSWL91"
 }
 
+variable "lambda_s3_key" {}
