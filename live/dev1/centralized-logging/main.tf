@@ -12,6 +12,8 @@ module "logging" {
   kinesis_retention_period = "${var.kinesis_retention_period}"
 
   destination_policy_identifiers = "${var.destination_policy_identifiers}"
+
+  es_endpoint = "${data.terraform_remote_state.elasticsearch.endpoint}"
 }
 
 module "route53" {

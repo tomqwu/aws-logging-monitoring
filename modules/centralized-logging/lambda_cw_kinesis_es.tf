@@ -30,6 +30,13 @@ resource "aws_lambda_function" "cw-kinesis-es" {
     subnet_ids         = ["${data.aws_subnet_ids.selected.ids}"]
     security_group_ids = ["${aws_security_group.cw-kinesis-es.id}"]
   }
+
+  environment {
+    variables = {
+      ES_REGION   = "${var.region}"
+      ES_ENDPOINT = "${var.es_endpoint}"
+    }
+  }
 }
 
 resource "aws_security_group" "cw-kinesis-es" {
