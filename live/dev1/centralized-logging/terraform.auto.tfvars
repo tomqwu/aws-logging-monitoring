@@ -11,4 +11,4 @@ destination_policy_identifiers = [
   "782132744008", # edl-uat
 ]
 
-lambda_s3_key = "cloudwatch-kinesis-es-lambda/main_v1.0.0.zip"
+lambda_s3_key = "cloudwatch-kinesis-es-lambda/main_v1.0.3.zip"
