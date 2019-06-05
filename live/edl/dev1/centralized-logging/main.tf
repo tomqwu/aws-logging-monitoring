@@ -1,5 +1,5 @@
 module "logging" {
-  source = "../../../modules/centralized-logging"
+  source = "../../../../modules/centralized-logging"
 
   vpc = "${var.vpc}"
 
@@ -19,7 +19,7 @@ module "logging" {
 }
 
 module "route53" {
-  source = "../../../modules/route53"
+  source = "../../../../modules/route53"
 
   providers = {
     aws = "aws.shared-services"

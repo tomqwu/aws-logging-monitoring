@@ -1,5 +1,5 @@
 module "elasticsearch" {
-  source = "../../../modules/elasticsearch"
+  source = "../../../../modules/elasticsearch"
 
   vpc = "${var.vpc}"
 
