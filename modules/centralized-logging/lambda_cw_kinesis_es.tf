@@ -15,10 +15,9 @@ data "aws_subnet_ids" "selected" {
 # lambda get-record from kinesis for cloudwatch logs
 # cppib-terraform-lambda-artifacts/cloudwatch-kinesis-es-lambda/main.zip
 resource "aws_lambda_function" "cw-kinesis-es" {
-  s3_bucket = "${var.lambda_s3_bucket}"
-  s3_key    = "${var.lambda_s3_key}"
-  role      = "${aws_iam_role.cw-kinesis-es-lambda.arn}"
-  runtime   = "nodejs8.10"
+  filename = "${path.module}/cloudwatch-kinesis-es-lambda/main.zip"
+  role     = "${aws_iam_role.cw-kinesis-es-lambda.arn}"
+  runtime  = "nodejs8.10"
 
   function_name = "${var.app_name}_${var.env_name}_cw_kinesis_es"
   handler       = "kinesis_lambda_es.handler"

@@ -30,14 +30,6 @@ variable "destination_policy_identifiers" {
 ###########################
 # Lambda
 ###########################
-variable "lambda_s3_bucket" {
-  default = "cppib-terraform-lambda-artifacts"
-}
-
-variable "lambda_s3_key" {
-  default = "cloudwatch-kinesis-es-lambda/main.zip"
-}
-
 variable "es_endpoint" {
   default = "elasticsearch endpoint"
 }
