@@ -13,7 +13,7 @@ data "aws_subnet_ids" "selected" {
 }
 
 # lambda get-record from kinesis for cloudwatch logs
-# cppib-terraform-lambda-artifacts/cloudwatch-kinesis-es-lambda/main.zip
+# demo-terraform-lambda-artifacts/cloudwatch-kinesis-es-lambda/main.zip
 resource "aws_lambda_function" "cw-kinesis-es" {
   filename = "${path.module}/cloudwatch-kinesis-es-lambda/main.zip"
   role     = "${aws_iam_role.cw-kinesis-es-lambda.arn}"
@@ -56,7 +56,7 @@ resource "aws_security_group" "cw-kinesis-es" {
 }
 
 resource "aws_iam_role" "cw-kinesis-es-lambda" {
-  name = "CPPIB-${var.app_name}-${var.env_name}-cw-kinesis-es-lambda"
+  name = "demo-${var.app_name}-${var.env_name}-cw-kinesis-es-lambda"
   path = "/"
 
   assume_role_policy = "${data.aws_iam_policy_document.cw-kinesis-es-assume.json}"
@@ -98,7 +98,7 @@ data "aws_iam_policy_document" "cw-kinesis-es-lambda" {
 }
 
 resource "aws_iam_policy" "cw-kinesis-es-lambda" {
-  name   = "CPPIB-${var.app_name}-${var.env_name}-cw-kinesis-es-lambda"
+  name   = "demo-${var.app_name}-${var.env_name}-cw-kinesis-es-lambda"
   policy = "${data.aws_iam_policy_document.cw-kinesis-es-lambda.json}"
 }
 

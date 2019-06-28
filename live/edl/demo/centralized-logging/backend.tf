@@ -2,19 +2,19 @@ terraform {
   required_version = ">= 0.11.10" # introduction of Local Values configuration language feature
 
   backend "atlas" {
-    name    = "CPPIB/edl-centralized-logging-nonprod"
-    address = "https://terraform.cppib.ca"
+    name    = "demo/demo-centralized-logging-nonprod"
+    address = "https://terraform.demo.ca"
   }
 }
 
 provider "vault" {
-  address = "https://vault.cppib.ca"
+  address = "https://vault.demo.ca"
 }
 
 // AWS credentials from Vault
 data "vault_aws_access_credentials" "sts-creds" {
   backend = "aws"
-  role    = "edl-dev1"
+  role    = "demo-demo"
   type    = "sts"
 }
 
@@ -27,12 +27,12 @@ provider "aws" {
   token      = "${data.vault_aws_access_credentials.sts-creds.security_token}"
 }
 
-data "terraform_remote_state" "edl-etl-workflow" {
+data "terraform_remote_state" "demo-etl-workflow" {
   backend = "atlas"
 
   config {
-    name    = "CPPIB/edl-etl-workflow-dev1"
-    address = "https://terraform.cppib.ca"
+    name    = "demo/demo-etl-workflow-demo"
+    address = "https://terraform.demo.ca"
   }
 }
 
@@ -40,8 +40,8 @@ data "terraform_remote_state" "elasticsearch" {
   backend = "atlas"
 
   config {
-    name    = "CPPIB/edl-elasticsearch-nonprod"
-    address = "https://terraform.cppib.ca"
+    name    = "demo/demo-elasticsearch-nonprod"
+    address = "https://terraform.demo.ca"
   }
 }
 

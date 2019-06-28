@@ -1,6 +1,6 @@
 # trust policy for cloudwatch logs
 resource "aws_iam_role" "cwl" {
-  name = "CPPIB-${var.app_name}-${var.env_name}-cwl"
+  name = "demo-${var.app_name}-${var.env_name}-cwl"
   path = "/"
 
   assume_role_policy = "${data.aws_iam_policy_document.cwl-assume.json}"
@@ -27,7 +27,7 @@ resource "aws_iam_role_policy_attachment" "cwl" {
 }
 
 resource "aws_iam_policy" "cwl" {
-  name   = "CPPIB-${var.app_name}-${var.env_name}-cwl"
+  name   = "demo-${var.app_name}-${var.env_name}-cwl"
   policy = "${data.aws_iam_policy_document.cwl.json}"
 }
 

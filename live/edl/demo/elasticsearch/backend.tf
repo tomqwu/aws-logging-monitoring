@@ -2,19 +2,19 @@ terraform {
   required_version = ">= 0.11.10" # introduction of Local Values configuration language feature
 
   backend "atlas" {
-    name    = "CPPIB/edl-elasticsearch-nonprod"
-    address = "https://terraform.cppib.ca"
+    name    = "demo/demo-elasticsearch-nonprod"
+    address = "https://terraform.demo.ca"
   }
 }
 
 provider "vault" {
-  address = "https://vault.cppib.ca"
+  address = "https://vault.demo.ca"
 }
 
 // AWS credentials from Vault
 data "vault_aws_access_credentials" "sts-creds" {
   backend = "aws"
-  role    = "edl-dev1"
+  role    = "demo-demo"
   type    = "sts"
 }
 

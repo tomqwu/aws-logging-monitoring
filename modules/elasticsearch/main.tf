@@ -120,7 +120,7 @@ resource "aws_cloudwatch_log_group" "domain" {
 }
 
 resource "aws_cloudwatch_log_resource_policy" "domain" {
-  policy_name = "CPPIB-${var.app_name}-${var.env_name}-${var.domain}"
+  policy_name = "demo-${var.app_name}-${var.env_name}-${var.domain}"
 
   policy_document = <<CONFIG
 {
